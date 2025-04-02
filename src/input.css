@@ -1,1 +1,61 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Inconsolata";
+  src: url("./assets/fonts/Inconsolata-VariableFont_wdth-wght.ttf"),
+    format("truetype"),
+    url("./assets/fonts/static/Inconsolata-Bold.ttf")
+      url("./assets/fonts/static/Inconsolata-ExtraBold.ttf") format("truetype"),
+    url("./assets/fonts/static/Inconsolata-Medium.ttf"),
+    url("./assets/fonts/static/Inconsolata-Regular.ttf");
+}
+
+/* .bg-desktop {
+  background-image: url("../src/assets/images/background-desktop.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+} */
+
+.bg-mobile {
+  background-image: url("../src/assets/images/background-mobile.png");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+.input-field {
+  /* Border-related properties */
+  border: 0.5px solid hsl(252, 6%, 83%);
+  border-radius: 0.7rem;
+
+  /* Background and color */
+  background-color: hsla(245, 19%, 35%, 0.3);
+  color: hsl(0, 0%, 100%);
+
+  /* Spacing-related properties */
+  padding: 0.8rem 0.8rem;
+  margin-bottom: 1.5rem;
+
+  /* Size */
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.text-gray {
+  color: hsl(252, 6%, 83%);
+}
+
+.text-neutral {
+  color: hsl(0, 0%, 100%);
+}
+
+@media (min-width: 448px) {
+  main {
+    padding: 0 2.5rem;
+  }
+}

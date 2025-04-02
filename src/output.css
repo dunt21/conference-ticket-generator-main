@@ -6,7 +6,14 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-gray-100: oklch(0.967 0.003 264.542);
+    --spacing: 0.25rem;
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --radius-xl: 0.75rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -154,36 +161,144 @@
   }
 }
 @layer utilities {
-  .relative {
-    position: relative;
-  }
   .static {
     position: static;
   }
-  .block {
-    display: block;
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-5 {
+    margin-bottom: calc(var(--spacing) * 5);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .mb-10 {
+    margin-bottom: calc(var(--spacing) * 10);
   }
   .contents {
     display: contents;
   }
+  .flex {
+    display: flex;
+  }
   .table {
     display: table;
   }
-  .border-collapse {
-    border-collapse: collapse;
+  .h-screen {
+    height: 100vh;
   }
-  .resize {
-    resize: both;
+  .min-h-screen {
+    min-height: 100vh;
   }
-  .border {
+  .w-\[10rem\] {
+    width: 10rem;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .gap-1\.5 {
+    gap: calc(var(--spacing) * 1.5);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .border-0 {
     border-style: var(--tw-border-style);
-    border-width: 1px;
+    border-width: 0px;
   }
-  .bg-gray-100 {
-    background-color: var(--color-gray-100);
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
   }
-  .underline {
-    text-decoration-line: underline;
+  .border-dashed {
+    --tw-border-style: dashed;
+    border-style: dashed;
+  }
+  .border-\[hsl\(245\,15\%\,58\%\)\] {
+    border-color: hsl(245,15%,58%);
+  }
+  .bg-\[hsl\(7\,88\%\,67\%\)\] {
+    background-color: hsl(7,88%,67%);
+  }
+  .bg-\[hsl\(245\,19\%\,35\%\)\]\/30 {
+    background-color: color-mix(in oklab, hsl(245,19%,35%) 30%, transparent);
+  }
+  .bg-\[hsl\(245\,19\%\,35\%\)\]\/50 {
+    background-color: color-mix(in oklab, hsl(245,19%,35%) 50%, transparent);
+  }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
+  .px-5 {
+    padding-inline: calc(var(--spacing) * 5);
+  }
+  .px-8 {
+    padding-inline: calc(var(--spacing) * 8);
+  }
+  .px-\[5rem\] {
+    padding-inline: 5rem;
+  }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
+  .py-5 {
+    padding-block: calc(var(--spacing) * 5);
+  }
+  .pt-8 {
+    padding-top: calc(var(--spacing) * 8);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .font-\[Inconsolata\] {
+    font-family: Inconsolata;
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-\[1\.1rem\] {
+    font-size: 1.1rem;
+  }
+  .text-\[1\.2rem\] {
+    font-size: 1.2rem;
+  }
+  .text-\[11px\] {
+    font-size: 11px;
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-extrabold {
+    --tw-font-weight: var(--font-weight-extrabold);
+    font-weight: var(--font-weight-extrabold);
+  }
+  .text-\[hsl\(249\,21\%\,12\%\)\] {
+    color: hsl(249,21%,12%);
   }
   .outline {
     outline-style: var(--tw-outline-style);
@@ -193,10 +308,40 @@
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
 }
+@font-face {
+  font-family: "Inconsolata";
+  src: url("./assets/fonts/Inconsolata-VariableFont_wdth-wght.ttf"), format("truetype"), url("./assets/fonts/static/Inconsolata-Bold.ttf") url("./assets/fonts/static/Inconsolata-ExtraBold.ttf") format("truetype"), url("./assets/fonts/static/Inconsolata-Medium.ttf"), url("./assets/fonts/static/Inconsolata-Regular.ttf");
+}
+.bg-mobile {
+  background-image: url("../src/assets/images/background-mobile.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.input-field {
+  border: 0.5px solid hsl(252, 6%, 83%);
+  border-radius: 0.7rem;
+  background-color: hsla(245, 19%, 35%, 0.3);
+  color: hsl(0, 0%, 100%);
+  padding: 0.8rem 0.8rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  font-size: 1.1rem;
+}
+.text-gray {
+  color: hsl(252, 6%, 83%);
+}
+.text-neutral {
+  color: hsl(0, 0%, 100%);
+}
 @property --tw-border-style {
   syntax: "*";
   inherits: false;
   initial-value: solid;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
 }
 @property --tw-outline-style {
   syntax: "*";
