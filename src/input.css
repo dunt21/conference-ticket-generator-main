@@ -12,7 +12,7 @@
 
 .bg-mobile {
   background-image: url("./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"),
-    url("../src/assets/images/background-mobile.png");
+    url("./assets/images/background-mobile.png");
   background-size: 20rem, auto;
   background-repeat: no-repeat, no-repeat;
   background-position: 1% 50rem, right;
