@@ -25,81 +25,215 @@
       }
     </style>
     <link rel="stylesheet" href="./output.css" />
-    <link rel="stylesheet" href="./input.css" />
+    <!-- <link rel="stylesheet" href="./input.css" /> -->
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+      integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script> -->
   </head>
-  <body class="w-full min-h-screen px-5 bg-mobile font-[Inconsolata] pt-8">
-    <main class="flex items-center flex-col">
-      <!-- Form starts -->
-      <img src="./assets/images/logo-full.svg" class="w-[10rem] mb-8" />
-      <h1 class="text-neutral font-extrabold mb-4 text-center">
-        Your Journey to Coding Conf 2025 Starts Here!
-      </h1>
-      <p class="text-gray text-center text-[1.2rem] mb-10">
-        Secure your spot at next year's biggest coding conference.
-      </p>
-      <div class="">
-        <p class="text-neutral text-[1.2rem] mb-2">Upload Avatar</p>
-
-        <div
-          class="border-[hsl(245,15%,58%)] border-dashed border-2 px-5 py-5 w-full gap-3 bg-[hsl(245,19%,35%)]/30 rounded-xl flex flex-col items-center"
-        >
+  <body
+    class="w-full min-h-screen bg-mobile bg-tablet bg-desktop font-[Inconsolata] flex flex-col items-center justify-start"
+  >
+    <main
+      class="flex h-[100%] px-5 sm:w-[30rem] xl:w-[50%] squiggly-lines items-center flex-col"
+    >
+      <div class="hidden" id="form">
+        <!-- Form starts -->
+        <div class="flex justify-center">
           <img
-            src="./assets/images/icon-upload.svg"
-            class="border-0 bg-[hsl(245,19%,35%)]/50 p-2 rounded-xl"
+            src="./assets/images/logo-full.svg"
+            class="w-[10rem] mb-8 mt-10"
           />
-          <p class="text-gray text-[1rem]">Drag and drop or click to upload</p>
         </div>
-        <p class="text-gray text-[11px] flex gap-1.5 mt-3 mb-5">
-          <img src="./assets/images/icon-info.svg" />
-
-          Upload your photo (JPG or PNG, max size: 500KB).
-        </p>
-
-        <p class="text-neutral text-[1.2rem] mb-2">Full Name</p>
-        <input type="text" class="input-field" />
-
-        <p class="text-neutral text-[1.2rem] mb-2">Email Address</p>
-        <input
-          type="email"
-          placeholder="example@email.com "
-          class="input-field"
-        />
-
-        <p class="text-neutral text-[1.2rem] mb-2">GitHub Username</p>
-        <input type="text" placeholder="@yourusername" class="input-field" />
-        <button
-          class="bg-[hsl(7,88%,67%)] w-full px-[2rem] py-3 rounded-xl font-bold text-lg text-[hsl(249,21%,12%)]"
+        <h1
+          class="text-neutral font-extrabold leading-[2.2rem] xl:leading-[3.5rem] text-[1.8rem] sm:text-[2rem] xl:text-5xl mb-4 sm:mb-2 text-center"
         >
-          Generate My Ticket
-        </button>
+          Your Journey to Coding Conf 2025 Starts Here!
+        </h1>
+        <p class="text-gray text-center text-[1.2rem] mb-10 sm:mb-8">
+          Secure your spot at next year's biggest coding conference.
+        </p>
+        <form id="user-form" class="sm:w-[27rem] mx-auto" novalidate>
+          <label for="Upload" class="text-neutral text-[1.2rem] mb-2"
+            >Upload Avatar</label
+          >
+
+          <div
+            tabindex="0"
+            class="border-[hsl(245,15%,58%)] hover:bg-[hsl(245,19%,35%)] transition duration-500 ease-in cursor-pointer border-dashed border-2 px-5 py-5 w-full gap-3 bg-[hsl(245,19%,35%)]/30 rounded-xl flex flex-col items-center focus:outline-2 focus:outline-[hsl(245,15%,58%)] focus:outline-offset-2"
+          >
+            <label for="file-upload" class="cursor-pointer">
+              <img
+                src="./assets/images/icon-upload.svg"
+                class="w-[3rem] h-[3rem] object-cover border-1 border-[hsl(247,10%,51%)] bg-[hsl(245,19%,35%)]/50 p-2 rounded-xl"
+                id="upload-img"
+              />
+            </label>
+            <input
+              type="file"
+              id="file-upload"
+              class="hidden input-img"
+              required
+            />
+
+            <p class="text-gray text-[1rem]" id="drop-txt">
+              Drag and drop or click to upload
+            </p>
+
+            <div class="hidden" id="change-remove-div">
+              <button class="img-btn" id="remove-btn" type="button">
+                <span class="border-b-1 border-b-[hsl(252,6%,83%)]">
+                  Remove Image
+                </span>
+              </button>
+              <button class="img-btn" id="change-btn" type="button">
+                Change Image
+              </button>
+            </div>
+          </div>
+
+          <p
+            class="text-gray text-[11px] flex gap-1.5 mt-3 mb-5"
+            id="upload-error-msg"
+          >
+            <img src="./assets/images/icon-info.svg" />
+
+            Upload your photo (JPG or PNG, max size: 500KB).
+          </p>
+          <p
+            class="hidden error-msg text-[11px] text-[hsl(7,71%,60%)] mt-3 mb-5"
+          >
+            <img
+              src="./assets/images/icon-info.png"
+              class="w-4 mr-2 inline"
+            />File too large. Please upload a photo under 500kb
+          </p>
+
+          <label for="Name" class="text-neutral text-[1.2rem] mb-2"
+            >Full Name</label
+          >
+          <input type="text" class="input-field" required id="full-name" />
+
+          <div class="email-container">
+            <label for="Email" class="text-neutral text-[1.2rem] mb-2"
+              >Email Address</label
+            >
+
+            <input
+              type="email"
+              placeholder="example@email.com "
+              required
+              class="input-field email"
+            />
+            <p
+              class="hidden error-msg text-[11px] gap-1.5 text-[hsl(7,71%,60%)]"
+            >
+              <img src="./assets/images/icon-info.png" class="w-4 inline" />
+              Please enter a valid email address
+            </p>
+          </div>
+
+          <label
+            for="Github Username"
+            class="mt-[2rem] text-neutral text-[1.2rem] mb-2"
+            >GitHub Username</label
+          >
+          <input
+            type="text"
+            placeholder="@yourusername"
+            class="input-field"
+            required
+            id="github"
+          />
+          <button
+            type="submit"
+            class="bg-[hsl(7,88%,67%)] hover:bg-[hsl(7,71%,60%)] transition duration-500 ease-in cursor-pointer mb-[6rem] w-full px-[2rem] py-3 rounded-xl font-bold text-lg text-[hsl(249,21%,12%)] focus:outline-2 focus:outline-[hsl(0,0%,100%)] focus:outline-offset-2"
+            id="generate-ticket"
+          >
+            Generate My Ticket
+          </button>
+        </form>
       </div>
-      <!-- 
-      <div class="mt-5"></div>
-      <div class=""></div>
-      <div class=""></div> -->
+      <div class="ticket text-center h-[13rem]" id="ticket">
+        <!-- Generated tickets starts -->
+        <img
+          src="./assets/images/logo-full.svg"
+          class="w-[11rem] mb-8 mt-10 mx-auto"
+        />
+        <h1
+          class="text-neutral font-extrabold leading-[2.2rem] xl:leading-[3.5rem] text-[2rem] sm:text-[2rem] xl:text-5xl mb-4 sm:mb-2 text-center"
+        >
+          Congrats,<span
+            class="user-name text-transparent bg-clip-text bg-gradient-to-r from-[hsl(7,86%,67%)] to-[hsl(0,0%,100%)]"
+          >
+            Jonathan Kristop</span
+          >! Your ticket is ready.
+        </h1>
+        <p
+          class="text-gray text-center text-[1.2rem] mb-10 sm:mb-8 xl:mx-[5rem] 2xl:mx-[12rem]"
+        >
+          We've emailed your ticket to
+          <span class="text-[hsl(7,71%,60%)]" id="email"> Email Address </span>
+          and will send updates in the run up to the event.
+        </p>
+        <div class="ticket-img xl:mx-[5rem] 2xl:mx-[8rem] flex" id="ticket-img">
+          <div class="w-full h-full">
+            <div
+              class="px-5 py-3 text-left h-[100%] flex flex-col gap-[20%] xl:gap-[30%] 2xl:gap-[35%]"
+            >
+              <div>
+                <p class="text-[clamp(1.3rem,5vw,2rem)] font-bold text-neutral">
+                  <img
+                    src="./assets/images/logo-mark.svg"
+                    class="inline w-[2rem] mr-[1rem]"
+                  />Coding Conf
+                </p>
+                <p
+                  class="text-gray ml-[3rem] text-[clamp(0.8rem,2.5vw,0.9rem)]"
+                >
+                  Jan 31, 2025 / Austin, TX
+                </p>
+              </div>
 
-      <!-- Form ends -->
+              <div class="flex gap-3 items-center">
+                <img
+                  src="./assets/images/avatar.jpg"
+                  class="w-[3rem] h-[3rem] object-cover border-1 border-[hsl(247,10%,51%)] bg-[hsl(245,19%,35%)]/50 rounded-xl"
+                  id="profile-img"
+                />
+                <div>
+                  <p
+                    class="user-name text-neutral text-[clamp(1.1rem,4vw,1.2rem)]"
+                  >
+                    Jonathan Kristop
+                  </p>
+                  <p
+                    class="flex text-gray text-[clamp(0.8rem,2.5vw,0.9rem)] items-center"
+                  >
+                    <img
+                      src="./assets/images/icon-github.svg"
+                      class="mr-2"
+                    />@<span class="github-name"> jonatankristof0101 </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p
+            class="vertical-text mr-[1.8rem] text-[1.2rem] text-[hsl(245,15%,58%)]"
+          >
+            #<span id="ticket-num">01609 </span>
+          </p>
+        </div>
 
-      <!-- Generated tickets starts -->
-      <h1>
-        Congrats,
-        <!-- Full Name -->! Your ticket is ready.
-      </h1>
-      <p>
-        We've emailed your ticket to
-        <!-- Email Address -->
-        and will send updates in the run up to the event.
-      </p>
-      <h3>Coding Conf</h3>
-      <p>Jan 31, 2025 / Austin, TX</p>
-
-      <!-- Generated tickets ends -->
+        <button class="download">Download Your ticket</button>
+        <!-- Generated tickets ends -->
+      </div>
     </main>
-
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
-    </div>
+    <!-- Form ends -->
+    <script src="./script.js" type="module"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.1/html2canvas.min.js"></script> -->
   </body>
 </html>

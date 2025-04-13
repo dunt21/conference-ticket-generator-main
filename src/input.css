@@ -10,22 +10,12 @@
     url("./assets/fonts/static/Inconsolata-Regular.ttf");
 }
 
-/* .bg-desktop {
-  background-image: url("../src/assets/images/background-desktop.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-} */
-
 .bg-mobile {
-  background-image: url("../src/assets/images/background-mobile.png");
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: right;
-}
-
-h1 {
-  font-size: 1.8rem;
+  background-image: url("./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"),
+    url("../src/assets/images/background-mobile.png");
+  background-size: 20rem, auto;
+  background-repeat: no-repeat, no-repeat;
+  background-position: 1% 50rem, right;
 }
 
 .input-field {
@@ -44,6 +34,29 @@ h1 {
   /* Size */
   width: 100%;
   font-size: 1.1rem;
+
+  transition: 500ms ease-in-out;
+}
+
+input[type="email"].input-field {
+  margin-bottom: 0.5rem;
+}
+
+.input-field:hover {
+  background-color: hsl(245, 19%, 35%);
+}
+
+.input-field:focus {
+  outline: 2px solid hsl(245, 15%, 58%); /* Outline thickness, style, and color */
+  outline-offset: 2px; /* Space between the outline and the input */
+}
+
+input[type="email"]:invalid:not(:placeholder-shown) {
+  border: 1px solid hsl(7, 71%, 60%);
+}
+
+input[type="email"]:invalid:not(:placeholder-shown):not(:focus) + .error-msg {
+  display: block;
 }
 
 .text-gray {
@@ -54,8 +67,91 @@ h1 {
   color: hsl(0, 0%, 100%);
 }
 
-@media (min-width: 448px) {
-  main {
-    padding: 0 2.5rem;
+.squiggly-lines {
+  background-image: url("./assets/images/pattern-circle.svg"),
+    url("./assets/images/pattern-squiggly-line-top.svg"),
+    url("./assets/images/pattern-lines.svg");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: 30%, 30%, 57rem;
+  background-position: -6% -3%, 100% 2%, top;
+}
+
+.img-btn {
+  background-color: hsla(245, 19%, 35%, 0.53);
+  border-radius: 5px;
+  color: hsl(252, 6%, 83%);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.ticket-img {
+  background-image: url("./assets/images/pattern-ticket.svg");
+  background-size: 100%;
+  background-position: center 0;
+  background-repeat: no-repeat;
+  aspect-ratio: 15 / 7;
+}
+
+.download {
+  margin-top: 2rem;
+  border: 1px solid black;
+  border-radius: 2rem;
+  padding: 0.5rem 1.3rem;
+  background-color: hsl(7, 71%, 60%);
+  color: hsl(248, 70%, 10%);
+  cursor: pointer;
+  font-weight: 600;
+  transition: 500ms ease-in;
+}
+
+.download:focus {
+  outline: 1px solid hsl(0, 0%, 100%);
+  outline-offset: 2px;
+}
+
+.download:hover {
+  background-color: hsl(7, 88%, 67%);
+}
+
+.vertical-text {
+  writing-mode: vertical-lr;
+}
+
+@media (min-width: 640px) {
+  .bg-mobile {
+    background-image: none;
+  }
+
+  .bg-tablet {
+    background-image: url("./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"),
+      url("./assets/images/pattern-circle.svg"),
+      url("./assets/images/pattern-squiggly-line-top.svg"),
+      url("./assets/images/pattern-lines.svg"),
+      url("./assets/images/background-tablet.png");
+    background-size: 60%, 18%, 30%, 100%, auto;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: -1% 100%, 2% -5%, 100% 2%, top, right;
+  }
+
+  .squiggly-lines {
+    background-image: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .bg-tablet {
+    background-image: none;
+  }
+
+  .bg-desktop {
+    background-image: url("./assets/images/pattern-squiggly-line-bottom-desktop.svg"),
+      url("./assets/images/pattern-circle.svg"),
+      url("./assets/images/pattern-squiggly-line-top.svg"),
+      url("./assets/images/pattern-lines.svg"),
+      url("./assets/images/background-desktop.png");
+    background-size: 60%, 13%, 30%, 100%, auto;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: -20% 40rem, 2% -10%, 100% 2%, top, center;
   }
 }
