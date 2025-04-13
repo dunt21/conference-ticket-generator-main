@@ -118,6 +118,22 @@ input[type="email"]:invalid:not(:placeholder-shown):not(:focus) + .error-msg {
   writing-mode: vertical-lr;
 }
 
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+  pointer-events: none;
+  position: absolute;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  position: static;
+  display: block;
+}
+
 @media (min-width: 640px) {
   .bg-mobile {
     background-image: none;

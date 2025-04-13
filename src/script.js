@@ -1,5 +1,5 @@
 "use script";
-import html2canvas from "html2canvas-pro";
+// import html2canvas from "html2canvas-pro";
 
 //Form variables
 const inputImg = document.querySelector(".input-img");
@@ -77,7 +77,7 @@ userForm.addEventListener("submit", (e) => {
     for (let i = 0; i < length; i++) {
       ticketDigit += Math.trunc(Math.random() * 10);
     }
-    console.log(ticketDigit);
+    // console.log(ticketDigit);
   }
   generateTicketNum(5);
 
@@ -106,8 +106,13 @@ userForm.addEventListener("submit", (e) => {
     alert("Please fill all the forms");
     return;
   } else {
-    formDiv.style.display = "none";
-    ticket.style.display = "block";
+    // formDiv.style.display = "none";
+    // ticket.style.display = "block";
+
+    formDiv.classList.remove("show");
+    formDiv.classList.add("fade");
+    ticket.classList.add("show");
+    ticket.classList.remove("fade");
 
     userName.forEach((name) => {
       name.textContent = transformedName;
@@ -120,10 +125,7 @@ userForm.addEventListener("submit", (e) => {
 });
 
 download.addEventListener("click", () => {
-  html2canvas(ticketImg).then((canvas) => {
-    const link = document.createElement("a");
-    link.href = canvas.toDataURL("image/png");
-    link.download = "my-ticket.png";
-    link.click();
+  domtoimage.toBlob(ticketImg).then(function (blob) {
+    window.saveAs(blob, "ticket-png");
   });
 });

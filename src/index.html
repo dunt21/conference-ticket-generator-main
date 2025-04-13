@@ -26,12 +26,6 @@
     </style>
     <link rel="stylesheet" href="./output.css" />
     <!-- <link rel="stylesheet" href="./input.css" /> -->
-    <!-- <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
-      integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script> -->
   </head>
   <body
     class="w-full min-h-screen bg-mobile bg-tablet bg-desktop font-[Inconsolata] flex flex-col items-center justify-start"
@@ -39,7 +33,7 @@
     <main
       class="flex h-[100%] px-5 sm:w-[30rem] xl:w-[50%] squiggly-lines items-center flex-col"
     >
-      <div class="hidden" id="form">
+      <div class="show" id="form">
         <!-- Form starts -->
         <div class="flex justify-center">
           <img
@@ -156,7 +150,7 @@
           </button>
         </form>
       </div>
-      <div class="ticket text-center h-[13rem]" id="ticket">
+      <div class="hidden fade ticket text-center h-[13rem]" id="ticket">
         <!-- Generated tickets starts -->
         <img
           src="./assets/images/logo-full.svg"
@@ -200,7 +194,7 @@
               <div class="flex gap-3 items-center">
                 <img
                   src="./assets/images/avatar.jpg"
-                  class="w-[3rem] h-[3rem] object-cover border-1 border-[hsl(247,10%,51%)] bg-[hsl(245,19%,35%)]/50 rounded-xl"
+                  class="w-[3rem] h-[3rem] object-cover border-1 border-[hsl(247,10%,51%)] rounded-xl"
                   id="profile-img"
                 />
                 <div>
@@ -233,7 +227,14 @@
       </div>
     </main>
     <!-- Form ends -->
-    <script src="./script.js" type="module"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.1/html2canvas.min.js"></script> -->
+    <script src="./script.js"></script>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+    integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
 </html>
