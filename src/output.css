@@ -263,8 +263,17 @@
   .w-full {
     width: 100%;
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .transform {
+    transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
+  }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -278,6 +287,9 @@
   .justify-start {
     justify-content: flex-start;
   }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
   .gap-1\.5 {
     gap: calc(var(--spacing) * 1.5);
   }
@@ -289,6 +301,10 @@
   }
   .rounded-xl {
     border-radius: var(--radius-xl);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .border-1 {
     border-style: var(--tw-border-style);
@@ -394,6 +410,9 @@
   .text-\[clamp\(1\.3rem\,5vw\,2rem\)\] {
     font-size: clamp(1.3rem, 5vw, 2rem);
   }
+  .text-\[clamp\(1rem\,4vw\,1\.2rem\)\] {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
   .leading-\[2\.2rem\] {
     --tw-leading: 2.2rem;
     line-height: 2.2rem;
@@ -417,6 +436,9 @@
   }
   .text-transparent {
     color: transparent;
+  }
+  .underline {
+    text-decoration-line: underline;
   }
   .outline {
     outline-style: var(--tw-outline-style);
@@ -664,6 +686,31 @@ input[type="email"]:invalid:not(:placeholder-shown):not(:focus) + .error-msg {
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: -20% 40rem, 2% -10%, 100% 2%, top, center;
   }
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateX(0);
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateY(0);
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateZ(0);
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: skewX(0);
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: skewY(0);
 }
 @property --tw-border-style {
   syntax: "*";
